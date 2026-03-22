@@ -1,0 +1,44 @@
+@import "tailwindcss";
+@plugin "tailwindcss-animate";
+
+@theme {
+  --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+  --font-display: var(--font-poppins), ui-sans-serif, system-ui, sans-serif;
+
+  --color-primary: #00FFFF;
+  --color-secondary: #BF00FF;
+}
+
+:root {
+  --background: #ffffff;
+  --foreground: #050505;
+  --muted: #f5f5f5;
+  --border: rgba(0, 0, 0, 0.1);
+  --card: rgba(0, 0, 0, 0.02);
+}
+
+.dark {
+  --background: #050505;
+  --foreground: #ffffff;
+  --muted: #1a1a1a;
+  --border: rgba(255, 255, 255, 0.1);
+  --card: rgba(255, 255, 255, 0.02);
+}
+
+body {
+  background-color: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-sans);
+  transition: background-color 0.3s ease, color 0.3s ease;
+  @apply antialiased;
+}
+
+@layer utilities {
+  .text-gradient {
+    @apply bg-clip-text text-transparent bg-linear-to-r from-primary to-secondary;
+  }
+  
+  .bg-gradient {
+    @apply bg-linear-to-r from-primary to-secondary;
+  }
+}
